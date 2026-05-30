@@ -4,60 +4,42 @@ import HistorieItem from '@/components/HistorieItem.vue'
 import SkillCard from '@/components/SkillCard.vue'
 import ProjectCard from '@/components/ProjectCard.vue'
 import ProjectModal from '@/components/ProjectModal.vue'
-import { projects as projectsData } from '@/data/projects.js'
+import Workplekleren1 from '@/components/workplekleren/Workplekleren1.vue'
+import Workplekleren2 from '@/components/workplekleren/Workplekleren2.vue'
+import { useCentralStorageStore } from '@/stores/projectContent.js'
 
-const digitalSkills = [
-  { name: 'Adobe Illustrator', icon: 'Ai' },
-  { name: 'Adobe Photoshop', icon: 'Ps' },
-  { name: 'Figma', icon: 'Fg' },
-  { name: 'JavaScript', icon: 'JS' },
-  { name: 'CSS', icon: 'CSS' },
-  { name: 'HTML5', icon: 'HTML' },
-]
-
-const languageSkills = [
-  { name: 'Nederlands - Moedertaal', flag: '🇧🇪' },
-  { name: 'Engels', flag: '🇬🇧' },
-  { name: 'Frans (10%)', flag: '🇫🇷' },
-]
-
-const historieData = [
-  {
-    year: '2006',
-    imageSrc: '/images/historie/2006.jpg',
-    alt: 'Kindertijd',
-    text: 'In 2006 werd ik geboren in Frankrijk, in het stadje Saint-Aubin-lès-Elbeuf. Op dat moment woonde mijn mama daar in een organisatie die Emmaüs heet, een gemeenschap die mensen ondersteunt en samenbrengt rond werk en solidariteit. De eerste drie jaren van mijn leven bracht ik in Frankrijk door, omringd door een andere cultuur, taal en omgeving dan die ik later gewoon zou worden. Toch is het opvallend dat ik vandaag weinig tot geen Frans spreek. Dat roept bij mij soms de vraag op: hoe anders zou mijn leven of mijn identiteit zijn geweest als ik daar langer was gebleven of de taal wel actief had opgepikt? Ondanks dat ik me die periode niet bewust herinner, maakt het deel uit van mijn verhaal en vormt het een bijzondere start van mijn leven.',
-  },
-  {
-    year: '2009',
-    imageSrc: '/images/historie/2009.jpg',
-    alt: 'Kleuterklas',
-    text: 'In 2009 ben ik bij mijn oma en opa gaan wonen. Zij woonden in België, in het dorp Bekkevoort, en tot op de dag van vandaag woon ik hier nog steeds. Toen ik drie jaar oud was, verhuisde ik van Frankrijk naar België, wat een grote verandering moet zijn geweest, ook al herinner ik me daar zelf weinig van. In Bekkevoort bouwde ik stap voor stap een nieuw leven op, omringd door familie en een vertrouwde omgeving. Deze plek is uiteindelijk echt mijn thuis geworden en heeft een grote invloed gehad op wie ik vandaag ben.',
-  },
-  {
-    year: '2018',
-    imageSrc: '/images/historie/2018.jpg',
-    alt: 'School Ter Beuke',
-    text: 'In 2018 ben ik naar de school Ter Beuke gegaan in Kessel-Lo. In die periode is er een nieuwe directeur gekomen en werd er een volledig nieuw leerplan ingevoerd, wat de school echt heel tof maakte. In het tweede middelbaar moest ik ineens op een hele nieuwe manier les volgen, met EPICs, iPads, actieve examens, enzovoort.',
-  },
-  {
-    year: '2021',
-    imageSrc: '/images/historie/2021.jpg',
-    alt: 'De Prins',
-    text: 'In 2021 ben ik terechtgekomen op de school De Prins in Diest. Oorspronkelijk was ik begonnen in een kantoorgerichte richting, maar al snel kwam ik erachter dat dit niets voor mij was. Daarna heb ik de richting Publiciteit gevonden. Hier heb ik ook het grootste deel van mijn vrienden leren kennen en heb ik een echte liefde voor design en creativiteit ontwikkeld.',
-  },
-  {
-    year: '2025',
-    imageSrc: '/images/historie/2025.png',
-    alt: 'PXL',
-    text: 'Sinds 2025 tot op heden ben ik student aan de Hogeschool PXL in Hasselt. Ik volg de richting Digitale Vormgeving, omdat ik mij verder wil verdiepen in webdevelopment. Het extra bijleren van design is daarbij altijd een groot pluspunt.',
-  },
-]
+const projectContentStore = useCentralStorageStore()
 
 const selectedCategory = ref('Opleiding')
+const selectedWorkplekleren = ref('werkplekleren-1')
+const workpleklerenComponents = {
+  'werkplekleren-1': Workplekleren1,
+  'werkplekleren-2': Workplekleren2,
+}
+
+function toggleWorkplekleren(slug) {
+  selectedWorkplekleren.value = selectedWorkplekleren.value === slug ? '' : slug
+}
+
+function isWorkpleklerenOpen(slug) {
+  return selectedWorkplekleren.value === slug
+}
+
+const selectedWorkpleklerenItem = computed(() => {
+  return (
+    projectContentStore.workplekleren.find((item) => item.slug === selectedWorkplekleren.value) ??
+    null
+  )
+})
+
+const selectedWorkpleklerenComponent = computed(() => {
+  return workpleklerenComponents[selectedWorkplekleren.value] ?? null
+})
 
 const filteredProjects = computed(() => {
-  return projectsData.filter((project) => project.category === selectedCategory.value)
+  return projectContentStore.projects.filter(
+    (project) => project.category === selectedCategory.value,
+  )
 })
 
 const modalVisible = ref(false)
@@ -100,21 +82,50 @@ function closeModal() {
       <section>
         <h4>Digitaal</h4>
         <div class="skills-grid">
-          <SkillCard v-for="skill in digitalSkills" :key="skill.name" :skill="skill" />
+          <SkillCard v-for="skill in projectContentStore.digitalSkills" :key="skill.name" :skill="skill" />
         </div>
       </section>
 
       <section class="languages">
         <h4>Talen</h4>
         <div class="languages-grid">
-          <SkillCard v-for="skill in languageSkills" :key="skill.name" :skill="skill" />
+          <SkillCard v-for="skill in projectContentStore.languageSkills" :key="skill.name" :skill="skill" />
         </div>
       </section>
     </section>
 
     <section id="historie" class="Historie">
       <h3 class="style">Historie</h3>
-      <HistorieItem v-for="item in historieData" :key="item.year" :item="item" />
+      <HistorieItem v-for="item in projectContentStore.historieData" :key="item.year" :item="item" />
+    </section>
+
+    <section id="workplekleren" class="workplekleren">
+      <div class="workplekleren-tabs" role="tablist" aria-label="Werkplekleren">
+        <button
+          v-for="item in projectContentStore.workplekleren"
+          :key="item.slug"
+          type="button"
+          class="workplekleren-tab"
+          :class="{ active: isWorkpleklerenOpen(item.slug) }"
+          :aria-selected="isWorkpleklerenOpen(item.slug)"
+          :aria-expanded="isWorkpleklerenOpen(item.slug)"
+          @click="toggleWorkplekleren(item.slug)"
+        >
+          <span>{{ item.title }}</span>
+          <span class="workplekleren-arrow" aria-hidden="true">
+            {{ isWorkpleklerenOpen(item.slug) ? '▲' : '▼' }}
+          </span>
+        </button>
+      </div>
+
+      <Transition name="workplekleren-expand" mode="out-in">
+        <component
+          :is="selectedWorkpleklerenComponent"
+          v-if="selectedWorkpleklerenItem && selectedWorkpleklerenComponent"
+          :key="selectedWorkpleklerenItem.slug"
+          class="workplekleren-panel"
+        />
+      </Transition>
     </section>
 
     <section id="projects" class="projects">
@@ -217,10 +228,89 @@ header {
 
 .skills-grid,
 .languages-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
+  justify-items: center;
+}
+
+.workplekleren {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 24px 20px 40px;
+}
+
+.workplekleren-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.workplekleren-tab,
+.workplekleren-panel {
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  background: var(--site-surface);
+}
+
+.workplekleren-tab {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--card-border);
+  background: var(--site-surface);
+  color: var(--site-text);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.workplekleren-tab:hover,
+.workplekleren-tab.active {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.workplekleren-tab.active {
+  border-color: var(--accent);
+}
+
+.workplekleren-tab span:first-child {
+  font-weight: 700;
+}
+
+.workplekleren-arrow {
+  color: var(--accent);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.workplekleren-panel {
+  padding: 1rem 1.25rem 1.25rem;
+  color: var(--muted-text);
+}
+
+.workplekleren-expand-enter-active,
+.workplekleren-expand-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.workplekleren-expand-enter-from,
+.workplekleren-expand-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+@media (max-width: 700px) {
+  .workplekleren-tabs {
+    grid-template-columns: 1fr;
+  }
 }
 
 h4 {
@@ -229,9 +319,6 @@ h4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   text-align: center;
-}
-
-.page-home {
 }
 
 header#home-header {

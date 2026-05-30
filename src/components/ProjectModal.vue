@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onBeforeUnmount, watch } from 'vue'
-import { useProjectContentStore } from '@/stores/projectContent.js'
+import { useCentralStorageStore } from '@/stores/projectContent.js'
 
 const props = defineProps({
   project: { type: Object, default: null },
@@ -9,7 +9,7 @@ const props = defineProps({
 
 const emit = defineEmits(['close'])
 
-const projectContentStore = useProjectContentStore()
+const projectContentStore = useCentralStorageStore()
 
 const modalContent = computed(() => {
   if (!props.project?.slug) return null

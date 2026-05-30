@@ -18,6 +18,8 @@ defineProps({
 
 <style scoped>
 .skill-card {
+  width: 100%;
+  max-width: 160px;
   padding: 1rem;
   text-align: center;
   display: flex;

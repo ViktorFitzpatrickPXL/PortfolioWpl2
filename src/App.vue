@@ -6,6 +6,7 @@
         <div class="nav-links">
           <a href="#skills" :class="{ active: activeSection === 'skills' }">Skills</a>
           <a href="#historie" :class="{ active: activeSection === 'historie' }">Historie</a>
+          <a href="#workplekleren" :class="{ active: activeSection === 'workplekleren' }">Werkplekleren</a>
           <a href="#projects" :class="{ active: activeSection === 'projects' }">Projects</a>
         </div>
       </div>

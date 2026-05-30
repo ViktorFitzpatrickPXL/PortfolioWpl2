@@ -1,15 +1,14 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { projects as projectsData } from '@/data/projects.js'
-import { useProjectContentStore } from '@/stores/projectContent.js'
+import { useCentralStorageStore } from '@/stores/projectContent.js'
 
 const route = useRoute()
 const router = useRouter()
 const slug = route.params.slug
-const projectContentStore = useProjectContentStore()
+const projectContentStore = useCentralStorageStore()
 
-const project = computed(() => projectsData.find((p) => p.slug === slug) ?? null)
+const project = computed(() => projectContentStore.projects.find((p) => p.slug === slug) ?? null)
 const content = computed(() =>
   project.value ? projectContentStore.getContent(project.value.slug) : null,
 )
