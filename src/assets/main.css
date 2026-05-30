@@ -1,0 +1,36 @@
+:root {
+  --nav-height: 50px;
+  --site-bg: #0d1117;
+  --site-surface: #0b2333;
+  --site-text: #e6f0ff;
+  --muted-text: #9fbfd6;
+  --accent: #00bfa6;
+  --card-bg: #0f2a3b;
+  --card-border: rgba(230, 240, 255, 0.04);
+  --nav-surface: rgba(11, 35, 51, 0.85);
+  --muted-shadow: rgba(0, 0, 0, 0.6);
+  --neon: #5af0d6;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--site-text);
+  background: var(--site-bg);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  padding: 0;
+}
+
+#app {
+  padding: 0;
+}

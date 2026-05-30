@@ -1,0 +1,33 @@
+:root {
+  --nav-height: 50px;
+  --site-bg: #0d1117;
+  --site-surface: #0b2333;
+  --site-text: #e6f0ff;
+  --muted-text: #9fbfd6;
+  --accent: #00bfa6;
+  --card-bg: #0f2a3b;
+  --card-border: rgba(230, 240, 255, 0.04);
+  --nav-surface: rgba(11, 35, 51, 0.85);
+  --muted-shadow: rgba(0, 0, 0, 0.6);
+  --neon: #5af0d6;
+  --neon-strong: rgba(90, 240, 214, 0.14);
+  --glass: rgba(255, 255, 255, 0.03);
+  --scanline: rgba(255, 255, 255, 0.02);
+  --glow-color: rgba(0, 191, 166, 0.12);
+  --white-transparent-1: rgba(255, 255, 255, 0.01);
+  --white-transparent-2: rgba(255, 255, 255, 0.03);
+  --white-transparent-3: rgba(255, 255, 255, 0.04);
+  --white-transparent-4: rgba(255, 255, 255, 0.1);
+  --black-transparent-1: rgba(0, 0, 0, 0.3);
+  --black-transparent-2: rgba(0, 0, 0, 0.5);
+  --black-transparent-3: rgba(0, 0, 0, 0.65);
+  --neon-border-1: rgba(90, 240, 214, 0.08);
+  --neon-border-2: rgba(90, 240, 214, 0.12);
+  --neon-border-3: rgba(90, 240, 214, 0.2);
+  --neon-gradient-1: linear-gradient(90deg, var(--neon), rgba(0, 191, 166, 0.35));
+  --neon-gradient-2: linear-gradient(90deg, var(--accent), rgba(0, 191, 166, 0.4));
+  --glass-gradient-1: linear-gradient(180deg, rgba(11, 35, 51, 0.72), rgba(7, 17, 38, 0.42));
+  --glass-gradient-2: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0));
+  --glass-gradient-3: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+  --text-gradient: linear-gradient(135deg, var(--site-text), var(--accent));
+}
