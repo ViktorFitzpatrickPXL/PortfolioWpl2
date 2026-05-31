@@ -14,13 +14,13 @@ const content = computed(() =>
 )
 
 function goBack() {
-  router.push({ name: 'Projects' })
+  router.push({ name: 'Home' })
 }
 </script>
 
 <template>
   <div class="project-detail" v-if="project">
-    <button class="back-button" @click="goBack">← Terug naar projecten</button>
+    <button class="back-button" @click="goBack">← Terug naar home</button>
 
     <header class="detail-header">
       <h1>{{ content?.title || project.title }}</h1>

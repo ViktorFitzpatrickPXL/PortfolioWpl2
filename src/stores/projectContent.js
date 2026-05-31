@@ -68,109 +68,85 @@ export const useCentralStorageStore = defineStore('centralstorage', () => {
 
   const projects = ref([
     {
-      slug: 'Opleidingsproject',
-      title: '',
-      imageSrc: '/images/projecten/project1.jpg',
-      alt: 'Project 1',
+      slug: 'werkplekleren-1',
+      title: 'Werkplekleren 1',
+      imageSrc: new URL('../assets/img/dashborad.png', import.meta.url).href,
+      alt: 'Werkplekleren 1',
       shortDescription:
-        'Dit is een korte beschrijving van het eerste project. Het toont mijn vaardigheden in X en Y.',
-      longDescription: `Dit is een uitgebreide beschrijving van Project 1. Dit project was een geweldige kans om mijn vaardigheden in webontwikkeling en design te tonen.
+        'Een Figma-project waarin ik een CV-dashboard ontwierp met een duidelijke structuur, visuele hiërarchie en gebruiksvriendelijke indeling.',
+      longDescription: `Voor Werkplekleren 1 ontwierp ik een CV-dashboard in Figma. De opdracht was om de informatie van een klassiek cv te vertalen naar een overzichtelijke digitale interface.
 
-Doelstelling:
-Het doel was om een responsieve portfolio-website te bouwen die mijn vaardigheden, projecten en ervaring op een professionele manier presenteert. De website moest modern, interactief en gemakkelijk te navigeren zijn.
+Aanpak:
+- Informatie structureren in een dashboard-omgeving
+- Eerst schetsen en wireframes uitwerken
+- Daarna het volledige ontwerp afwerken in Figma
 
-Uitdagingen:
-- Het integreren van Vue Router voor navigatie
-- Het implementeren van dynamische projectfiltering
-- Het zorgen voor responsieve design op alle apparaten
-- Het optimaliseren van afbeeldingen en laadtijden
-
-Resultaten:
-- Volledige, werkende portfolio-website
-- Scroll-gebaseerde navigatie met actieve links
-- Interactieve projectmodal met gedetailleerde informatie
-- Mooie animaties en hover-effecten
-- Volledig responsief design`,
-      technologies: ['Vue 3', 'JavaScript', 'CSS3', 'Vite', 'Vue Router'],
+Resultaat:
+- Een helder en visueel aantrekkelijk CV-dashboard
+- Een ontwerp met aandacht voor hiërarchie en gebruiksgemak
+- Een digitaal prototype dat mijn UI/UX-vaardigheden laat zien`,
+      technologies: ['Figma', 'UI/UX Design', 'Wireframing'],
       features: [
-        'Interactieve modal voor projectdetails',
-        'Dynamische projectfiltering op categorie',
-        'Sticky navigatie met scrollspy',
-        'Responsieve layouts',
-        'Smooth scroll-animaties',
-        'Donker design met accentkleuren',
+        'CV-dashboard in Figma',
+        'Overzichtelijke informatie-structuur',
+        'Wireframes en schetsen',
+        'Gebruiksvriendelijk eindontwerp',
       ],
       category: 'Opleiding',
       url: '',
     },
     {
-      slug: 'project-2',
-      title: 'Project 2 - Mobiele App',
-      imageSrc: '/images/projecten/project2.jpg',
-      alt: 'Project 2',
+      slug: 'werkplekleren-2',
+      title: 'Werkplekleren 2',
+      imageSrc: new URL('../assets/img/werkplekleren2.png', import.meta.url).href,
+      alt: 'Werkplekleren 2',
       shortDescription:
-        'Dit is een korte beschrijving van het tweede project. De focus lag hier op Z.',
-      longDescription: `Dit was een persoonlijk project waar ik mijn creativiteit kon uitleven.
-
-Doelstelling:
-Het bouwen van een interactieve mobiele applicatie die gebruikers helpt bij hun dagelijks leven.
+        'Een Vue- en brandingproject rond Qern waarin ik hielp aan de website, de visuele afwerking en de technische uitwerking.',
+      longDescription: `Voor Werkplekleren 2 werkte ik aan de rebranding en website van Qern. Ik onderzocht samen met het team hoe het bedrijf zich presenteerde en vertaalde dat naar een moderne digitale uitwerking.
 
 Aanpak:
-- Gebruikersonderzoek en wireframing
-- Iteratief ontwerp en testen
-- Implementatie met native technologieën
-- Feedback verzameling en verbeteringen
+- Identiteit en positionering analyseren
+- Een website bouwen met Vue.js
+- De wireframes omzetten naar een functioneel geheel
 
-Highlights:
-- Intuïtieve gebruikersinterface
-- Snelle en responsieve interacties
-- Push-notificaties en real-time updates
-- Offline functionaliteit`,
-      technologies: ['React Native', 'JavaScript', 'Firebase', 'Redux'],
+Resultaat:
+- Een responsive website met een verzorgde afwerking
+- Een rebranding die beter aansluit bij de visie van Qern
+- Een project waarin design en development samenkomen`,
+      technologies: ['Vue 3', 'JavaScript', 'CSS3', 'API-koppelingen'],
       features: [
-        'Push notificaties',
-        'Real-time synchronisatie',
-        'Offline modus',
-        'Donker/Licht thema',
-        'Geolocation integratie',
+        'Rebranding van Qern',
+        'Website opgebouwd in Vue',
+        'Responsive afwerking',
+        'Visuele en technische uitwerking',
       ],
-      category: 'Persoonlijk',
+      category: 'Opleiding',
       url: '',
     },
     {
-      slug: 'project-3',
-      title: 'Project 3 - E-commerce Platform',
-      imageSrc: '/images/projecten/project1.jpg',
-      alt: 'Project 3',
-      shortDescription: 'Nog een project van de opleiding.',
-      longDescription: `Dit schoolproject was een volledige e-commerce oplossing waarbij ik alle aspecten van modern webontwikkeling toepaste.
+      slug: 'vue-pokedex',
+      title: 'Vue Pokedex',
+      imageSrc: new URL('../assets/img/projecten/pokedex.png', import.meta.url).href,
+      alt: 'Vue Pokedex',
+      shortDescription:
+        'Een Vue Pokedex die ik wekelijks via pull requests uitbreidde met nieuwe objectives tot het eindresultaat een volledige college Pokédex werd.',
+      longDescription: `Voor dit project werkte ik in opeenvolgende stappen aan een Vue Pokedex. Elke week moest ik een pull request indienen waarin ik een concrete objective afwerkte, waardoor de functionaliteit stap voor stap werd uitgebreid.
 
-Scope:
-- Productcatalogus met filteren en zoeken
-- Winkelwagen en checkout systeem
-- Gebruikersaccounts en bestellingshistorie
-- Admin dashboard voor beheer
-- Payment integratie
+Aanpak:
+- Opleveren via wekelijkse pull requests
+- Per iteratie een afgebakende objective afwerken
+- Zelf werken aan dataweergave, detailpagina's en interfaceverbeteringen
 
-Technische implementatie:
-- Frontend gebouwd met Vue 3 en TypeScript
-- Backend REST API met Node.js
-- Database ontwerp met PostgreSQL
-- Authentication met JWT tokens
-
-Geleerde lessen:
-- Complexe state management
-- Database relaties en queries
-- Security best practices
-- API design patterns`,
-      technologies: ['Vue 3', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Stripe API'],
+Resultaat:
+- Een collegewaardige Pokédex in Vue
+- Duidelijke opbouw en nette structuur
+- Een project dat groeide doorheen de weken en mijn vooruitgang zichtbaar maakt`,
+      technologies: ['Vue 3', 'JavaScript', 'CSS3', 'Vue Router'],
       features: [
-        'Geavanceerde productfiltering',
-        'Secure payment processing',
-        'Order tracking',
-        'Admin dashboard',
-        'Email notificaties',
-        'Wishlist functionaliteit',
+        'Wekelijkse pull requests',
+        'Iteratieve oplevering per objective',
+        'Pokédex-overzicht en detailweergave',
+        'Individueel opgebouwde functionaliteit',
       ],
       category: 'Opleiding',
       url: '',
@@ -199,34 +175,23 @@ Geleerde lessen:
         'Naast de visuele opmaak bevat dit project ook een duidelijke structuur, interactieve projectkaarten en een aparte detailpagina voor uitgebreidere informatie.',
     },
     {
-      slug: 'project-2',
-      title: 'Mobiele App',
+      slug: 'vue-pokedex',
+      title: 'Vue Pokedex',
       summary:
-        'Een persoonlijk app-concept met focus op intuïtieve interacties, snelheid en een heldere interface.',
+        'Een Vue Pokedex die ik wekelijks via pull requests uitbreidde met nieuwe objectives tot het eindresultaat een volledige college Pokédex werd.',
       sections: [
         {
           heading: 'Beschrijving',
-          body: 'Dit project verkent hoe ik digitale producten kan ontwerpen en structureren voor mobiel gebruik.',
+          body: 'Dit project groeide week na week door telkens een nieuwe objective af te werken en die via pull request in te dienen. Daardoor werd de Pokédex stapsgewijs uitgebreid tot een volwaardige college-opdracht.',
         },
-      ],
-      detailIntro: 'Een experimenteel project rond mobiele UX en interface-design.',
-      detailBody:
-        'De nadruk lag op gebruiksgemak, prototyping en het itereren van het ontwerp op basis van feedback.',
-    },
-    {
-      slug: 'project-3',
-      title: 'E-commerce Platform',
-      summary:
-        'Een schoolproject waarin productbeheer, filtering en een admin-achtige structuur centraal staan.',
-      sections: [
         {
-          heading: 'Beschrijving',
-          body: 'Dit project onderzocht hoe een grotere webapplicatie modulair opgebouwd kan worden.',
+          heading: 'Aanpak',
+          body: 'Ik werkte iteratief, met duidelijke weektaken en pull requests, zodat elke verbetering controleerbaar bleef in mijn workflow.',
         },
       ],
-      detailIntro: 'Een uitgebreid project dat focust op schaalbare webstructuren.',
+      detailIntro: 'Een Vue Pokedex die ik opbouwde door wekelijkse objectives en pull requests.',
       detailBody:
-        'Ik werkte hier rond complexere data-structuren, navigatie en een meer complete gebruikersflow.',
+        'Dit project toont hoe ik via een gestructureerde workflow een functionele Pokédex heb opgebouwd. De focus lag op consistente oplevering en het stap voor stap verbeteren van de applicatie.',
     },
   ])
 

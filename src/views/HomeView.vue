@@ -82,21 +82,33 @@ function closeModal() {
       <section>
         <h4>Digitaal</h4>
         <div class="skills-grid">
-          <SkillCard v-for="skill in projectContentStore.digitalSkills" :key="skill.name" :skill="skill" />
+          <SkillCard
+            v-for="skill in projectContentStore.digitalSkills"
+            :key="skill.name"
+            :skill="skill"
+          />
         </div>
       </section>
 
       <section class="languages">
         <h4>Talen</h4>
         <div class="languages-grid">
-          <SkillCard v-for="skill in projectContentStore.languageSkills" :key="skill.name" :skill="skill" />
+          <SkillCard
+            v-for="skill in projectContentStore.languageSkills"
+            :key="skill.name"
+            :skill="skill"
+          />
         </div>
       </section>
     </section>
 
     <section id="historie" class="Historie">
       <h3 class="style">Historie</h3>
-      <HistorieItem v-for="item in projectContentStore.historieData" :key="item.year" :item="item" />
+      <HistorieItem
+        v-for="item in projectContentStore.historieData"
+        :key="item.year"
+        :item="item"
+      />
     </section>
 
     <section id="workplekleren" class="workplekleren">
@@ -197,6 +209,15 @@ function closeModal() {
   margin-bottom: 0.5rem;
   margin-top: 0%;
   max-width: 50vw;
+  color: white;
+  -webkit-text-stroke: 2px var(--accent);
+  text-shadow:
+    2px 2px 0 var(--accent),
+    -2px -2px 0 var(--accent),
+    -2px 2px 0 var(--accent),
+    2px -2px 0 var(--accent),
+    0 2px 0 var(--accent),
+    0 -2px 0 var(--accent);
 }
 h1 {
   font-size: 2rem;
@@ -298,7 +319,9 @@ header {
 
 .workplekleren-expand-enter-active,
 .workplekleren-expand-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .workplekleren-expand-enter-from,
