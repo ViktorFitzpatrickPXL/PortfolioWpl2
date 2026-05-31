@@ -1,12 +1,18 @@
 <script setup>
 import { ref } from 'vue'
 import EmbedFrame from '@/components/EmbedFrame.vue'
+import pdfUrl from '@/assets/Opdracht eindreflectie WPL2_Viktor_fitzpatrick.pdf'
 
 const showEmbed = ref(false)
 const embedUrl = 'https://group11projectqern.netlify.app'
 
 function toggleEmbed() {
   showEmbed.value = !showEmbed.value
+}
+
+function openPdf() {
+  const w = window.open(pdfUrl, '_blank')
+  if (w) w.opener = null
 }
 </script>
 
@@ -42,9 +48,13 @@ Als deliverables werden de uitgewerkte branding, de website, de ontwerpen en de 
     <button type="button" class="embed-button" @click="toggleEmbed">
       {{ showEmbed ? 'Sluit voorbeeld' : 'Bekijk live website' }}
     </button>
+    <button type="button" class="pdf-button" @click="openPdf">
+      Reflectie
+    </button>
   </div>
   <div class="embed-container">
     <EmbedFrame v-if="showEmbed" :url="embedUrl" :height="'800px'" title="Qern demo" />
+    
   </div>
   </article>
 </template>
@@ -69,6 +79,8 @@ Als deliverables werden de uitgewerkte branding, de website, de ontwerpen en de 
 
 .embed-actions {
   margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
 }
 .embed-button {
   background: var(--accent);
@@ -81,6 +93,18 @@ Als deliverables werden de uitgewerkte branding, de website, de ontwerpen en de 
 }
 .embed-button:hover {
   opacity: 0.95;
+}
+.pdf-button {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+}
+.pdf-button:hover {
+  opacity: 0.9;
 }
 .embed-container {
   margin-top: 1rem;
