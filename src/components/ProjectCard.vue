@@ -84,4 +84,31 @@ function openDetails() {
 .project-button:hover {
   background-color: var(--neon);
 }
+
+@media (max-width: 600px) {
+  .project-card {
+    border-radius: 14px;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
+
+  .project-image {
+    height: 180px;
+  }
+
+  .project-content {
+    padding: 1.1rem;
+  }
+
+  .project-content p {
+    font-size: 0.95rem;
+  }
+
+  .project-button {
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+}
 </style>

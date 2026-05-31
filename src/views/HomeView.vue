@@ -427,4 +427,114 @@ section#about {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+@media (max-width: 900px) {
+  header#home-header {
+    height: 70vh;
+    min-height: 480px;
+  }
+
+  .header-text {
+    transform: translateY(0);
+    padding: 0 1rem;
+  }
+
+  .subtitle {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    max-width: 100%;
+    -webkit-text-stroke: 1.5px var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+  }
+
+  section,
+  .workplekleren,
+  .Historie {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  section#about {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .style {
+    font-size: 1.5rem;
+  }
+
+  .project-filter {
+    justify-content: center;
+  }
+
+  .projects-grid {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header#home-header {
+    height: auto;
+    min-height: 420px;
+    padding: 3.5rem 1rem;
+  }
+
+  .header-background {
+    object-position: center top;
+  }
+
+  .subtitle {
+    font-size: clamp(1.8rem, 10vw, 2.5rem);
+    line-height: 1.05;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .style {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 1.35rem;
+  }
+
+  .style::before,
+  .style::after {
+    flex-basis: 30%;
+  }
+
+  .skills-grid,
+  .languages-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .project-filter {
+    margin-bottom: 1.25rem;
+  }
+
+  .projects-grid {
+    gap: 1rem;
+  }
+
+  .workplekleren-tabs {
+    gap: 0.75rem;
+  }
+
+  .workplekleren-tab,
+  .workplekleren-panel {
+    border-radius: 12px;
+  }
+
+  .workplekleren-tab {
+    padding: 0.9rem 1rem;
+  }
+}
 </style>

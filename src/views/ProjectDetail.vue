@@ -109,4 +109,37 @@ function goBack() {
   text-decoration: none;
   font-weight: 700;
 }
+
+@media (max-width: 600px) {
+  .project-detail {
+    margin: 1rem auto;
+    padding: 0.75rem;
+  }
+
+  .back-button {
+    margin-bottom: 0.75rem;
+  }
+
+  .detail-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .lead {
+    margin-bottom: 1rem;
+  }
+
+  .detail-image {
+    margin-bottom: 1rem;
+    border-radius: 10px;
+  }
+
+  .tech-list {
+    gap: 0.4rem;
+  }
+
+  .open-link {
+    width: 100%;
+    text-align: center;
+  }
+}
 </style>

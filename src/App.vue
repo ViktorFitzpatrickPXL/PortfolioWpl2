@@ -159,4 +159,54 @@ onUnmounted(() => {
   gap: 1rem;
   align-items: center;
 }
+
+@media (max-width: 900px) {
+  .topnav {
+    padding: 0.75rem 0;
+  }
+
+  .nav-content {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 0 1rem;
+  }
+
+  .nav-left,
+  .nav-right {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .nav-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .topnav {
+    position: static;
+    top: auto;
+    backdrop-filter: none;
+  }
+
+  .site-title {
+    font-size: 0.95rem;
+  }
+
+  .nav-links {
+    font-size: 0.92rem;
+  }
+
+  .nav-right {
+    justify-content: flex-start;
+  }
+}
 </style>

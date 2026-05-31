@@ -407,11 +407,42 @@ onBeforeUnmount(() => {
 
   .modal-content {
     border-radius: 16px;
+    max-height: 96vh;
   }
 
   .modal-close {
     right: 12px;
     top: 12px;
+    width: 38px;
+    height: 38px;
+    font-size: 1.5rem;
+  }
+
+  .modal-body {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .modal-image {
+    height: 220px;
+  }
+
+  .modal-meta {
+    padding: 0;
+  }
+
+  .modal-info {
+    gap: 1.1rem;
+  }
+
+  .modal-link,
+  .modal-detail-button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .modal-detail-button {
+    margin-top: 0.75rem;
   }
 }
 </style>
