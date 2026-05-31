@@ -54,7 +54,7 @@ Als deliverables werden de uitgewerkte branding, de website, de ontwerpen en de 
   </div>
   <div class="embed-container">
     <EmbedFrame v-if="showEmbed" :url="embedUrl" :height="'800px'" title="Qern demo" />
-    
+
   </div>
   </article>
 </template>
